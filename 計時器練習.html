@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let input = prompt("請輸入數字");
+    let num = parseInt(input);
+
+    // 如果 parseInt 是 NaN 或
+    // 數字小於等於 0 或
+    // 輸入的東西含非數字字元
+    if(isNaN(num) || num <= 0 || input.match(/\D/g)) {
+      alert("請輸入正整數");
+    }
+    else {
+      // 卡住，延遲 1 毫秒
+      setTimeout(() => {
+        document.write(num + "<br>");
+        let timer = setInterval(()=>{
+          num--;
+          if(num >= 0) {
+            document.write(num + "<br>");
+          }
+          else {
+            clearInterval(timer);
+          }
+        }, 1000)
+      }, 1);
+    }
+  </script>
+</body>
+</html>
